@@ -5,8 +5,7 @@
 	<div class="panel-body">
 		<div class="container">
 			<%= form_for @room do |f| %>
-				<div class="row">
-					
+				<div class="row">					
 					<div class="col-md-4 select">
 						<div class="form-group">
 							<label for="">Home Type</label>
@@ -30,18 +29,19 @@
 														id: "bed_room", prompt: "Select.....", class: "form-control" %>
 						</div>
 					</div>
+				</div>
 
+				<div class="row">
 					<div class="col-md-4 select">
 						<div class="form-group">
 							<label for="">Bathrooms</label>
 							<%= f.select :bath_room, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]],
 														id: "bath_room", prompt: "Select.....", class: "form-control" %>
 						</div>
-					</div>
-
-					<div>
-						<%= f.submit "Create My Room", class: "btn btn-normal" %>
-					</div>
+					</div>					
+				</div> <!-- .row -->
+				<div>
+					<%= f.submit "Create My Room", class: "btn btn-normal" %>
 				</div>
 			<% end %>
 		</div>
