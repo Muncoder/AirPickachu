@@ -19,4 +19,6 @@ Rails.application.routes.draw do
 			get 'location'
 		end
 	end
+
+	resources :photos, only: [:create, :destroy]
 end
