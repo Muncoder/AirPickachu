@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :todo_lists
 	root 'pages#home'
 
 	devise_for :users,
@@ -18,7 +19,14 @@ Rails.application.routes.draw do
 			get 'amenities'
 			get 'location'
 		end
+		resources :photos, only: [:create, :destroy]
 	end
 
-	resources :photos, only: [:create, :destroy]
+
+
+
+
+
+	# others
+	resources :todo_lists
 end

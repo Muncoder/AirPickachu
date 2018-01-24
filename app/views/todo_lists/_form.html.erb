@@ -1,0 +1,39 @@
+<%= form_for(@todo_list) do |form| %>
+  <% if @todo_list.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(todo_list.errors.count, "error") %> prohibited this todo_list from being saved:</h2>
+
+      <ul>
+      <% @todo_list.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-inputs">
+    <%= form.text_field :name %>
+  </div>
+
+  <table class='table'>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Task Name</th>
+        <th>Completed</th>
+        <th>Due</th>
+      </tr>
+    </thead>
+    <tbody class='fields'>
+      <%= form.fields_for :tasks do |builder| %>
+        <%= render "task", f: builder %>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="actions">
+    <%= form.submit %>
+    <%= link_to_add_row('Add Task', form, :tasks, class: 'btn btn-primary') %>
+
+  </div>
+<% end %>

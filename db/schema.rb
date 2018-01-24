@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180122194626) do
+ActiveRecord::Schema.define(version: 20180124194719) do
 
   create_table "photos", force: :cascade do |t|
     t.integer "room_id"
@@ -39,6 +39,22 @@ ActiveRecord::Schema.define(version: 20180122194626) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "is_internet"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.integer "todo_list_id"
+    t.string "name"
+    t.boolean "completed"
+    t.date "due"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["todo_list_id"], name: "index_tasks_on_todo_list_id"
+  end
+
+  create_table "todo_lists", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
