@@ -2,8 +2,9 @@ class PhotosController < ApplicationController
 	def create
 		@room = Room.find(params[:room_id])
 
-		if params[:image]
+		if params[:images]
 			params[:images].each do |img|
+				# require 'pry'; binding.pry
 				@room.photos.create(image: img)
 			end
 		end	
