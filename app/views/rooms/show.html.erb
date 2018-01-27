@@ -1,7 +1,7 @@
 <!-- image -->
 <div class="row">
 	<div class="col-md-12">
-		<%= image_tag @room.cover_photo(nil), width: "100%" %>
+		<%= image_tag @room.cover_photo(nil), class: 'image-room-main' %>
 	</div>
 </div>
 <br>
@@ -10,19 +10,50 @@
 <div class="col-md-8">
 	<!-- listing name -->
 	<div class="row">
-		
+		<div class="col-md-8">
+			<h1><%= @room.listing_name %></h1>
+			<%= @room.address %>
+		</div>
+
+		<div class="col-md-4 text-center">
+			<%= image_tag avatar_url(@room.user), class: "img-circle avatar-large" %> <br><br>
+			<%= @room.user.fullname %>
+		</div>
 	</div>
 	<hr>
-	
+
 	<!-- room info -->
-	<div class="row">
-		
+	<div class="row text-babu">
+		<div class="row text-center row-space-1">
+			<div class="col-md-3">
+				<i class="fa fa-home fa-2x"></i>
+			</div>
+			<div class="col-md-3">
+				<i class="fa fa-user-circle-o fa-2x"></i>
+			</div>
+			<div class="col-md-3">
+				<i class="fa fa-bed fa-2x"></i>
+			</div>
+			<div class="col-md-3">
+				<i class="fa fa-bath fa-2x"></i>
+			</div>
+		</div>
+		<div class="row text-center">
+			<div class="col-md-3"><%= @room.home_type %></div>
+			<div class="col-md-3"><%= pluralize(@room.accomodate, "Guest") %></div>
+			<div class="col-md-3"><%= pluralize(@room.bed_room, "Bedroom") %></div>
+			<div class="col-md-3"><%= pluralize(@room.bath_room, "Bathroom") %></div>
+		</div>
+		</div>
 	</div>
 	<hr>
 
 	<!-- about -->
 	<div class="row">
-		
+		<div class="col-md-12">
+			<h3>About this listing</h3>
+			<p><%= @room.summary %></p>
+		</div>
 	</div>
 	<hr>
 

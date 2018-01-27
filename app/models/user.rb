@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   has_many :rooms
 
-  def full_name
+  def fullname
   	#require 'pry'; binding.pry
   	first_name.present? ? first_name : '' + ' ' + last_name
   end
