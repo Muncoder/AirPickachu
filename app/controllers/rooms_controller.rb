@@ -4,7 +4,7 @@ class RoomsController < ApplicationController
 	before_action :is_authorised, only: [:listing, :pricing, :description, :photo_upload, :amenities, :location, :update]
 
 	def index
-		@room = current_user.rooms.order("created_at DESC")
+		@rooms = current_user.rooms.order("created_at DESC")
 	end
 
 	def new
@@ -29,7 +29,10 @@ class RoomsController < ApplicationController
 	end
 
 	def update
-		if @room.update(room_params)
+		new_params = room_params
+		new_params = room_params.merge(active: true) if is_ready_room
+
+		if @room.update(new_params)
 			flash[:notice] = 'Updated successfully'
 			redirect_back(fallback_location: @room)
 		else
@@ -89,5 +92,9 @@ class RoomsController < ApplicationController
 
 	def is_authorised
 		redirect_to root_path, alert: "You don't have permission" unless current_user.id == @room.user_id
+	end
+
+	def is_ready_room
+		!@room.active && !@room.price.blank? && !@room.listing_name.blank? && !@room.photos.blank? && !@room.address.blank?
 	end
 end
