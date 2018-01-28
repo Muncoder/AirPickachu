@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180124194719) do
+ActiveRecord::Schema.define(version: 20180128182831) do
 
   create_table "photos", force: :cascade do |t|
     t.integer "room_id"
@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 20180124194719) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "is_internet"
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "tasks", force: :cascade do |t|
