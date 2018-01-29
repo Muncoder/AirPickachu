@@ -2,6 +2,9 @@ class Room < ApplicationRecord
 	belongs_to :user
 	has_many :photos
 
+	has_many :reservations
+	has_many :users, through: :reservations
+
 	geocoded_by :address # can also be an IP address
 	after_validation :geocode, if: :address_changed? # auto-fetch coordinates
 
