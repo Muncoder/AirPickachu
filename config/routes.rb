@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :products
   resources :todo_lists
 	root 'pages#home'
 
@@ -30,4 +31,5 @@ Rails.application.routes.draw do
 
 	# others
 	resources :todo_lists
+	resources :products
 end
