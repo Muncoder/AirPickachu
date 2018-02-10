@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :rooms
 
   has_many :reservations
-  has_many :rooms, through: :reservations
+  #has_many :rooms, through: :reservations
 
   def fullname
   	#require 'pry'; binding.pry

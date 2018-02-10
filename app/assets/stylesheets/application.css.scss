@@ -11,6 +11,7 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
+ *= require jquery-ui
  *= require_self
  */
 @import "bootstrap-sprockets";
@@ -309,6 +310,27 @@ a {
 	height: 400px !important;
 }
 
+// ***************************************************************************
+// RESERVATIONS
+.reservation-table td {
+	width: 100%;
+	border: none;
+	border-bottom: 1px solid #dce0e0;
+	padding: 10px;
+}
+
+.reservation-table .total td {
+	font-size: 16px;
+	font-weight: bold;
+	border: none;
+}
+
+.form-control.datepicker {
+	color: #00A699;
+	background-color: white;
+	border: 1px solid #00A699;
+	text-align: center;
+}
 
 // ***************************************************************************
 // AUTOCOMPLETE

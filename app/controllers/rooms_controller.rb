@@ -4,7 +4,9 @@ class RoomsController < ApplicationController
 	before_action :is_authorised, only: [:listing, :pricing, :description, :photo_upload, :amenities, :location, :update]
 
 	def index
-		@rooms = current_user.rooms.order("created_at DESC")
+		#require 'pry'; binding.pry
+		# @rooms = current_user.rooms.order("created_at DESC")
+		@rooms = Room.all.order("created_at DESC")
 	end
 
 	def new
