@@ -67,7 +67,34 @@ class RoomsController < ApplicationController
 	def location
 	end
 
+	# --- Reservations ---
+	def preload
+		today = Date.today
+		reservations = @room.reservations.where("start_date >= ? OR end_date >= ?", today, today)
+
+		render json: reservations
+	end
+
+	def preview
+		start_date = Date.parse(params[:start_date])
+		end_date = Date.parse(params[:end_date])
+
+		output = {
+			conflict: is_conflict(start_date, end_date, @room)
+		}
+
+		render json: output
+	end
+
+
+
+
 	private
+
+	def is_conflict(start_date, end_date, room)
+		check = room.reservations.where("? < start_date AND end_date < ?", start_date, end_date)
+		check.size > 0 ? true : false
+	end
 
 	def room_params
 		params.require(:room).permit(:home_type, 
@@ -96,7 +123,8 @@ class RoomsController < ApplicationController
 		redirect_to root_path, alert: "You don't have permission" unless current_user.id == @room.user_id
 	end
 
-	def is_ready_room
+                                        	def is_ready_room
 		!@room.active && !@room.price.blank? && !@room.listing_name.blank? && !@room.photos.blank? && !@room.address.blank?
 	end
+
 end

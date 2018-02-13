@@ -12,7 +12,8 @@ class User < ApplicationRecord
 
   def fullname
   	#require 'pry'; binding.pry
-  	first_name.present? ? first_name : '' + ' ' + last_name
+  	#first_name.present? ? first_name : '' + ' ' + last_name
+  	first_name + ' ' + last_name
   end
 
 	def self.from_omniauth(auth)

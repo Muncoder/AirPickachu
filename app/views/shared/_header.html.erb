@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Brand</a>
+      <%= link_to 'AirPickachu', root_path, class: 'navbar-brand' %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -24,6 +24,13 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        <li>
+          <button class="btn btn-danger navbar-btn">
+            <%= link_to "Become a host", new_room_path, id: "become-host", style: "color: white; text-decoration: none" %>
+          </button>          
+        </li>
+
+        <li><%= link_to 'Become a host', new_room_path, class: 'btn navbar-btn btn-small' %></li>
         <li><%= link_to 'Rooms', rooms_path %></li>
         <% if !user_signed_in? %>      
           <li><%= link_to 'Sign In', new_user_session_path %></li>  
@@ -39,6 +46,11 @@
               <% end %>
               <span class="caret"></span></a>
             <ul class="dropdown-menu">
+              <li><%= link_to 'Manage Listing', rooms_path %></li>
+              <li><%= link_to 'List Your Space', new_room_path %></li>
+              <li><%= link_to 'Your Reservations', your_reservations_path %></li>
+              <li><%= link_to 'Your Trips', your_trips_path %></li>
+                
               <li><%= link_to 'My Profile', user_path(current_user) %></li>
               <li><%= link_to 'My Account', edit_user_registration_path %></li>
               <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, data: { confirm: 'Sure to Sign Out ?' } %></li>
@@ -49,3 +61,4 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
