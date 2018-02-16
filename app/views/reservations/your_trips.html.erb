@@ -22,14 +22,18 @@
 								<%= image_tag trip.room.cover_photo(:thumb), class: 'image-medium' %>
 							<% end %>
 						</div>
-						<div class="col-md-8">
+						<div class="col-md-5">
 							<%= link_to trip.room.listing_name, room_path(trip.room) %>
-							<span class="pull-right text-center">
+							<span>
 								<%= image_tag avatar_url(trip.room.user), class: 'img-circle avatar-medium' %> <br>
 								<%= link_to user_path(trip.room.user) do %>
 									<%= trip.room.user.fullname %>
 								<% end %>
 							</span>
+						</div>
+						<div class="col-md-3 text-right">
+							<% require 'pry'; binding.pry %>
+							<%= render partial: "reviews/guest_form", locals: { reservation: trip } %>
 						</div>
 					</div>
 					<hr>

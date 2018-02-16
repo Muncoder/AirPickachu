@@ -10,6 +10,9 @@ class User < ApplicationRecord
   has_many :reservations
   #has_many :rooms, through: :reservations
 
+  has_many :guest_reviews, class_name: "GuestReview", foreign_key: "guest_id"
+  has_many :host_reviews, class_name: "HostReview", foreign_key: "host_id"
+
   def fullname
   	#require 'pry'; binding.pry
   	#first_name.present? ? first_name : '' + ' ' + last_name
