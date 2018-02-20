@@ -25,6 +25,8 @@ class RoomsController < ApplicationController
 	end
 
 	def show
+		@photos = @room.photos
+		@guest_reviews = @room.guest_reviews
 	end
 
 	def edit
@@ -58,7 +60,6 @@ class RoomsController < ApplicationController
 	end
 
 	def photo_upload
-		@photos = @room.photos
 	end
 
 	def amenities
@@ -123,8 +124,7 @@ class RoomsController < ApplicationController
 		redirect_to root_path, alert: "You don't have permission" unless current_user.id == @room.user_id
 	end
 
-                                        	def is_ready_room
+ 	def is_ready_room
 		!@room.active && !@room.price.blank? && !@room.listing_name.blank? && !@room.photos.blank? && !@room.address.blank?
 	end
-
 end

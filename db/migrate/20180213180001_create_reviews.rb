@@ -5,8 +5,8 @@ class CreateReviews < ActiveRecord::Migration[5.1]
       t.integer :star
       t.references :room, foreign_key: true
       t.references :reservation, foreign_key: true
-      t.references :guest, foreign_key: true
-      t.references :host, foreign_key: true
+      t.references :guest, foreign_key: { to_table: :users }
+      t.references :host, foreign_key: { to_table: :users }
       t.string :type
 
       t.timestamps

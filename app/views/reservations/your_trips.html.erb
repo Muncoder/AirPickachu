@@ -23,16 +23,16 @@
 							<% end %>
 						</div>
 						<div class="col-md-5">
-							<%= link_to trip.room.listing_name, room_path(trip.room) %>
+							<%= link_to trip.room.listing_name, room_path(trip.room) %> <br><br>
 							<span>
-								<%= image_tag avatar_url(trip.room.user), class: 'img-circle avatar-medium' %> <br>
+								<%= image_tag avatar_url(trip.room.user), class: 'img-circle avatar-small' %> <br>
 								<%= link_to user_path(trip.room.user) do %>
 									<%= trip.room.user.fullname %>
 								<% end %>
 							</span>
 						</div>
 						<div class="col-md-3 text-right">
-							<% require 'pry'; binding.pry %>
+							<%# require 'pry'; binding.pry %>
 							<%= render partial: "reviews/guest_form", locals: { reservation: trip } %>
 						</div>
 					</div>

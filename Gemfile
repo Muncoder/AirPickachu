@@ -36,6 +36,8 @@ gem 'hirb'
 
 gem 'geocoder', '~> 1.4', '>= 1.4.5'
 
+gem 'ransack', '~> 1.8', '>= 1.8.7'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
