@@ -16,12 +16,29 @@
 
 					<div class="col-md-4 select">
 						<div class="form-group">
+							<label for="">Room Type</label>
+							<%= f.select :room_type, [["Entire", "Entire"], ["Private", "Private"], ["Shared", "Shared"]],
+														id: "home_type", prompt: "Select.....", class: "form-control" %>
+						</div>
+					</div>
+
+					<div class="col-md-4 select">
+						<div class="form-group">
+								<label for="">Booking Type</label>
+								<%= f.select :instant, Room.instants.map {|key, value| [key.humanize, key]}, selected: 'Instant', prompt: "Select.....", class: "form-control" %>
+						</div>
+					</div>
+
+					<div class="col-md-4 select">
+						<div class="form-group">
 							<label for="">Accomodate</label>
 							<%= f.select :accomodate, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]],
 														id: "accomodate", prompt: "Select.....", class: "form-control" %>
 						</div>
 					</div>
+				</div>
 
+				<div class="row">
 					<div class="col-md-4 select">
 						<div class="form-group">
 							<label for="">Bedrooms</label>
@@ -29,9 +46,7 @@
 														id: "bed_room", prompt: "Select.....", class: "form-control" %>
 						</div>
 					</div>
-				</div>
 
-				<div class="row">
 					<div class="col-md-4 select">
 						<div class="form-group">
 							<label for="">Bathrooms</label>

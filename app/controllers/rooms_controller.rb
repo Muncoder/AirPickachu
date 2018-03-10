@@ -113,7 +113,8 @@ class RoomsController < ApplicationController
 																	:is_heating, 
 																	:price, 
 																	:active, 
-																	:user_id)
+																	:user_id,
+																	:instant)
 	end
 
 	def set_room
