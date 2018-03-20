@@ -14,6 +14,8 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require jquery-ui
+//= require moment
+//= require fullcalendar
 //= require_tree .
 
 $(document).on('turbolinks:load', function() {
@@ -31,5 +33,5 @@ $(document).on('turbolinks:load', function() {
     $('.fields').append($(this).data('fields').replace(regexp, time));
     return event.preventDefault();
   });
-  
+
 });

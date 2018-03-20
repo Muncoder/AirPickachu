@@ -40,6 +40,9 @@ gem 'ransack', '~> 1.8', '>= 1.8.7'
 
 gem 'twilio-ruby', '~> 4.11.1'
 
+gem 'fullcalendar-rails', '~> 3.4'
+gem 'momentjs-rails', '~> 2.17.1'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
