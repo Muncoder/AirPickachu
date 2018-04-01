@@ -76,6 +76,7 @@
       <ul class="nav navbar-nav">
         <li class="<%= current_page?(dashboard_path) ? 'active' : '' %>"> <%= link_to "Dashboard", dashboard_path %> </li>
         <li class="<%= current_page?(rooms_path) ? 'active' : '' %>"> <%= link_to "Manage Listings", rooms_path %> </li>
+        <li class="<%= current_page?(host_calendar_path) ? 'active' : '' %>"> <%= link_to "Host Calendar", host_calendar_path %> </li>
       </ul>
     </div>
   </nav>
